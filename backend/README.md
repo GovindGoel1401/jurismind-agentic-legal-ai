@@ -32,6 +32,14 @@ The server binds with:
 - `PORT` from Render
 - `HOST=0.0.0.0` by default
 
+For local frontend development, set CORS like this:
+
+- `CORS_ALLOWED_ORIGINS=http://localhost:5173`
+
+For production, add your deployed frontend domain too:
+
+- `CORS_ALLOWED_ORIGINS=http://localhost:5173,https://your-frontend-domain.com`
+
 ## Runtime Integrations In This Codebase
 
 This backend currently resolves providers like this:

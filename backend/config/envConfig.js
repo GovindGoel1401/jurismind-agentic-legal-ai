@@ -9,8 +9,13 @@ dotenv.config({
   path: path.resolve(__dirname, '../.env'),
 })
 
+function parsePort(value, fallback = 8000) {
+  const parsed = Number(value)
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback
+}
+
 export const env = {
-  PORT: Number(process.env.PORT || 8000),
+  PORT: parsePort(process.env.PORT, 8000),
   NODE_ENV: process.env.NODE_ENV || 'development',
   HOST: process.env.HOST || '0.0.0.0',
   CORS_ALLOWED_ORIGINS: process.env.CORS_ALLOWED_ORIGINS || '',
